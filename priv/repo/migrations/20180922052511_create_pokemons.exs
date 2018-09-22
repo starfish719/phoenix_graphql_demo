@@ -1,0 +1,12 @@
+defmodule PhoenixGraphqlDemo.Repo.Migrations.CreatePokemons do
+  use Ecto.Migration
+
+  def change do
+    create table(:pokemons) do
+      add :name, :string
+
+      timestamps()
+    end
+
+  end
+end
