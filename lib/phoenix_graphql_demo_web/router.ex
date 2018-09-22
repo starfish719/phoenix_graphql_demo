@@ -5,7 +5,12 @@ defmodule PhoenixGraphqlDemoWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", PhoenixGraphqlDemoWeb do
+  scope "/" do
     pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: PhoenixGraphqlDemoWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: PhoenixGraphqlDemoWeb.Endpoint}
   end
 end
