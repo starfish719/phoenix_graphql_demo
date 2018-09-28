@@ -22,20 +22,20 @@ defmodule PhoenixGraphqlDemo.Pokemon do
   end
 
   @doc """
-  Gets a single pokemon_list.
+  Gets a single pokemon.
 
   Raises `Ecto.NoResultsError` if the Pokemon list does not exist.
 
   ## Examples
 
-      iex> get_pokemon_list!(123)
+      iex> get_pokemon!(123)
       %PokemonList{}
 
-      iex> get_pokemon_list!(456)
+      iex> get_pokemon!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_pokemon_list!(id), do: Repo.get!(PokemonList, id)
+  def get_pokemon!(id), do: Repo.get!(PokemonList, id)
 
   @doc """
   Creates a pokemon_list.
