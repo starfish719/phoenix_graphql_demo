@@ -1,4 +1,4 @@
-defmodule PhoenixGraphqlDemo.Pokemon.PokemonList do
+defmodule PhoenixGraphqlDemo.Pokemon.PokemonData do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -10,8 +10,8 @@ defmodule PhoenixGraphqlDemo.Pokemon.PokemonList do
   end
 
   @doc false
-  def changeset(pokemon_list, attrs) do
-    pokemon_list
+  def changeset(pokemon_data, attrs) do
+    pokemon_data
     |> cast(attrs, [:name])
     |> validate_required([:name])
   end

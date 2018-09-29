@@ -10,9 +10,10 @@
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
-alias PhoenixGraphqlDemo.Pokemon.PokemonList
 alias PhoenixGraphqlDemo.Repo
- init_pokemons = [
+
+alias PhoenixGraphqlDemo.Pokemon.PokemonData
+init_pokemons = [
   [
     {:name, "フシギダネ"}
   ],
@@ -23,10 +24,76 @@ alias PhoenixGraphqlDemo.Repo
     {:name, "フシギバナ"}
   ],
 ]
- for init_pokemon <- init_pokemons do
+for init_pokemon <- init_pokemons do
   Repo.insert!(
-    %PokemonList{
+    %PokemonData{
       name: init_pokemon[:name]
     }
   )
-end 
+end
+
+alias PhoenixGraphqlDemo.Pokemon.Type
+init_types = [
+  [
+    {:name, "ノーマル"}
+  ],
+  [
+    {:name, "ほのお"}
+  ],
+  [
+    {:name, "みず"}
+  ],
+  [
+    {:name, "くさ"}
+  ],
+  [
+    {:name, "でんき"}
+  ],
+  [
+    {:name, "いわ"}
+  ],
+  [
+    {:name, "じめん"}
+  ],
+  [
+    {:name, "こおり"}
+  ],
+  [
+    {:name, "どく"}
+  ],
+  [
+    {:name, "エスパー"}
+  ],
+  [
+    {:name, "かくとう"}
+  ],
+  [
+    {:name, "ひこう"}
+  ],
+  [
+    {:name, "むし"}
+  ],
+  [
+    {:name, "ゴースト"}
+  ],
+  [
+    {:name, "ドラゴン"}
+  ],
+  [
+    {:name, "あく"}
+  ],
+  [
+    {:name, "はがね"}
+  ],
+  [
+    {:name, "フェアリー"}
+  ],
+]
+
+for init_type <- init_types do
+  Repo.insert!(
+    %Type{
+      name: init_type[:name]
+    }
+  )
+end
