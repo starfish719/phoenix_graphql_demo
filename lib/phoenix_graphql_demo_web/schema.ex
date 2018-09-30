@@ -6,6 +6,8 @@ defmodule PhoenixGraphqlDemoWeb.Schema do
   object :pokemon do
     field :id, non_null(:id)
     field :name, non_null(:string)
+    field :type1, :type
+    field :type2, :type
   end
 
   object :type do
