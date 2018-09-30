@@ -107,15 +107,21 @@ alias PhoenixGraphqlDemo.Pokemon.PokemonData
 init_pokemons = [
   [
     {:id, 1},
-    {:name, "フシギダネ"}
+    {:name, "フシギダネ"},
+    {:type1_id, 4},
+    {:type2_id, 9}
   ],
   [
     {:id, 2},
-    {:name, "フシギソウ"}
+    {:name, "フシギソウ"},
+    {:type1_id, 4},
+    {:type2_id, 9}
   ],
   [
     {:id, 3},
-    {:name, "フシギバナ"}
+    {:name, "フシギバナ"},
+    {:type1_id, 4},
+    {:type2_id, 9}
   ],
 ]
 for init_pokemon <- init_pokemons do
@@ -124,11 +130,13 @@ for init_pokemon <- init_pokemons do
       Repo.insert!(
         %PokemonData{
           id: init_pokemon[:id],
-          name: init_pokemon[:name]
+          name: init_pokemon[:name],
+          type1_id: init_pokemon[:type1_id],
+          type2_id: init_pokemon[:type2_id]
         }
       )
     pokemon ->
-      pokemon = Ecto.Changeset.change pokemon, name: init_pokemon[:name]
+      pokemon = Ecto.Changeset.change pokemon, name: init_pokemon[:name], type1_id: init_pokemon[:type1_id], type2_id: init_pokemon[:type2_id]
       Repo.update! pokemon
   end
 end

@@ -18,7 +18,7 @@ defmodule PhoenixGraphqlDemo.Pokemon do
 
   """
   def list_pokemons do
-    Repo.all(PokemonData)
+    Repo.all(PokemonData)|>Repo.preload(:type1)|>Repo.preload(:type2)
   end
 
   @doc """
@@ -35,7 +35,9 @@ defmodule PhoenixGraphqlDemo.Pokemon do
       ** (Ecto.NoResultsError)
 
   """
-  def get_pokemon_data!(id), do: Repo.get!(PokemonData, id)
+  def get_pokemon_data!(id) do
+    Repo.get!(PokemonData, id)|>Repo.preload(:type1)|>Repo.preload(:type2)
+  end
 
   @doc """
   Creates a pokemon_data.
