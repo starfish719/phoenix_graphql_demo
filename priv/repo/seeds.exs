@@ -140,3 +140,32 @@ for init_pokemon <- init_pokemons do
       Repo.update! pokemon
   end
 end
+
+alias PhoenixGraphqlDemo.TrainedPokemon.TrainedPokemonData
+init_trained_pokemons = [
+  [
+    {:id, 1},
+    {:pokemon_id, 1},
+    {:nickname, "フッシー"},
+  ],
+  [
+    {:id, 2},
+    {:pokemon_id, 2},
+    {:nickname, nil},
+  ],
+]
+for init_trained_pokemon <- init_trained_pokemons do
+  case Repo.get TrainedPokemonData, init_trained_pokemon[:id] do
+    nil ->
+      Repo.insert!(
+        %TrainedPokemonData{
+          id: init_trained_pokemon[:id],
+          pokemon_id: init_trained_pokemon[:pokemon_id],
+          nickname: init_trained_pokemon[:nickname],
+        }
+      )
+    trained_pokemon ->
+      trained_pokemon = Ecto.Changeset.change trained_pokemon, pokemon_id: init_trained_pokemon[:pokemon_id], nickname: init_trained_pokemon[:nickname]
+      Repo.update! trained_pokemon
+  end
+end
