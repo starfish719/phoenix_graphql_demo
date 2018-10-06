@@ -14,4 +14,13 @@ defmodule PhoenixGraphqlDemoWeb.TrainedPokemonResolver do
     trained_pokemons = TrainedPokemon.list_trained_pokemons()
     {:ok, trained_pokemons}
   end
+
+  def create_trained_pokemon(_root, _args, _info) do
+    case TrainedPokemon.create_trained_pokemon_data(_args) do
+      {:ok, trained_pokemon} ->
+        {:ok, trained_pokemon}
+      _error ->
+        {:error, "create failed"}
+    end
+  end
 end

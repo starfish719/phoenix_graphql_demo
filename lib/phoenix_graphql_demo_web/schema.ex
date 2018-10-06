@@ -42,4 +42,13 @@ defmodule PhoenixGraphqlDemoWeb.Schema do
       resolve &PokemonResolver.all_types/3
     end
   end
+
+  mutation do
+    field :create_trained_pokemon, :trained_pokemon do
+      arg :pokemon_id, non_null(:id)
+      arg :nickname, :string
+
+      resolve &TrainedPokemonResolver.create_trained_pokemon/3
+    end
+  end
 end
