@@ -23,4 +23,18 @@ defmodule PhoenixGraphqlDemoWeb.TrainedPokemonResolver do
         {:error, "create failed"}
     end
   end
+
+  def update_trained_pokemon(_root, %{ id: id, nickname: nickname }, _info) do
+    case TrainedPokemon.get_trained_pokemon_data!(id) do
+      nil -> 
+        {:error, "TrainedPokemon Not Found"}
+      trained_pokemon ->
+        case TrainedPokemon.update_trained_pokemon_data(trained_pokemon, %{ nickname: nickname }) do
+          {:ok, trained_pokemon} ->
+            {:ok, trained_pokemon}
+          _error ->
+            {:error, "update failed"}
+        end
+    end
+  end
 end

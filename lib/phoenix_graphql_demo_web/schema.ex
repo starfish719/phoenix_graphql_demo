@@ -30,6 +30,10 @@ defmodule PhoenixGraphqlDemoWeb.Schema do
     field :all_pokemons, :pokemon|>non_null|>list_of|>non_null do
       resolve &PokemonResolver.all_pokemons/3
     end
+    field :trained_pokemon, :trained_pokemon do
+      arg :id, non_null(:id)
+      resolve &TrainedPokemonResolver.trained_pokemon/3
+    end
     field :all_trained_pokemons, :trained_pokemon|>non_null|>list_of|>non_null do
       resolve &TrainedPokemonResolver.all_trained_pokemons/3
     end
@@ -49,6 +53,13 @@ defmodule PhoenixGraphqlDemoWeb.Schema do
       arg :nickname, :string
 
       resolve &TrainedPokemonResolver.create_trained_pokemon/3
+    end
+
+    field :update_trained_pokemon, :trained_pokemon do
+      arg :id, non_null(:id)
+      arg :nickname, :string
+
+      resolve &TrainedPokemonResolver.update_trained_pokemon/3
     end
   end
 end
