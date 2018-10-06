@@ -5,13 +5,13 @@ defmodule PhoenixGraphqlDemoWeb.TrainedPokemonResolver do
     case TrainedPokemon.get_trained_pokemon_data!(id) do
       nil -> 
         {:error, "TrainedPokemon Not Found"}
-      pokemon ->
-        {:ok, pokemon}
+      trained_pokemon ->
+        {:ok, trained_pokemon}
     end
   end
 
   def all_trained_pokemons(_root, _args, _info) do
-    pokemons = TrainedPokemon.list_trained_pokemons()
-    {:ok, pokemons}
+    trained_pokemons = TrainedPokemon.list_trained_pokemons()
+    {:ok, trained_pokemons}
   end
 end

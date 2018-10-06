@@ -6,6 +6,7 @@ defmodule PhoenixGraphqlDemo.TrainedPokemon do
   import Ecto.Query, warn: false
   alias PhoenixGraphqlDemo.Repo
 
+  alias PhoenixGraphqlDemo.Pokemon.PokemonData
   alias PhoenixGraphqlDemo.TrainedPokemon.TrainedPokemonData
 
   @doc """
@@ -19,6 +20,9 @@ defmodule PhoenixGraphqlDemo.TrainedPokemon do
   """
   def list_trained_pokemons do
     Repo.all(TrainedPokemonData)
+      |>Repo.preload(:pokemon_data)
+      |>Repo.preload(pokemon_data: :type1)
+      |>Repo.preload(pokemon_data: :type2)
   end
 
   @doc """
@@ -35,7 +39,12 @@ defmodule PhoenixGraphqlDemo.TrainedPokemon do
       ** (Ecto.NoResultsError)
 
   """
-  def get_trained_pokemon_data!(id), do: Repo.get!(TrainedPokemonData, id)
+  def get_trained_pokemon_data!(id) do
+    Repo.get!(TrainedPokemonData, id)
+      |>Repo.preload(:pokemon_data)
+      |>Repo.preload(pokemon_data: :type1)
+      |>Repo.preload(pokemon_data: :type2)
+  end
 
   @doc """
   Creates a trained_pokemon_data.

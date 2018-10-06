@@ -2,8 +2,6 @@ defmodule PhoenixGraphqlDemo.Pokemon.Type do
   use Ecto.Schema
   import Ecto.Changeset
 
-  PhoenixGraphqlDemo.Pokemon.PokemonData
-
   schema "types" do
     field :name, :string
 
