@@ -8,8 +8,6 @@ defmodule PhoenixGraphqlDemo.Pokemon.Type do
     field :name, :string
 
     timestamps()
-
-    has_many :pokemon_data, PokemonData
   end
 
   @doc false
