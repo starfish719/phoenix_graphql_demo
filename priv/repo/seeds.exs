@@ -109,19 +109,37 @@ init_pokemons = [
     {:id, 1},
     {:name, "フシギダネ"},
     {:type1_id, 4},
-    {:type2_id, 9}
+    {:type2_id, 9},
+    {:individual_value_h, 45},
+    {:individual_value_a, 49},
+    {:individual_value_b, 49},
+    {:individual_value_c, 65},
+    {:individual_value_d, 65},
+    {:individual_value_s, 45}
   ],
   [
     {:id, 2},
     {:name, "フシギソウ"},
     {:type1_id, 4},
-    {:type2_id, 9}
+    {:type2_id, 9},
+    {:individual_value_h, 60},
+    {:individual_value_a, 62},
+    {:individual_value_b, 63},
+    {:individual_value_c, 80},
+    {:individual_value_d, 80},
+    {:individual_value_s, 60}
   ],
   [
     {:id, 3},
     {:name, "フシギバナ"},
     {:type1_id, 4},
-    {:type2_id, 9}
+    {:type2_id, 9},
+    {:individual_value_h, 80},
+    {:individual_value_a, 82},
+    {:individual_value_b, 83},
+    {:individual_value_c, 100},
+    {:individual_value_d, 100},
+    {:individual_value_s, 80}
   ],
 ]
 for init_pokemon <- init_pokemons do
@@ -132,11 +150,17 @@ for init_pokemon <- init_pokemons do
           id: init_pokemon[:id],
           name: init_pokemon[:name],
           type1_id: init_pokemon[:type1_id],
-          type2_id: init_pokemon[:type2_id]
+          type2_id: init_pokemon[:type2_id],
+          individual_value_h: init_pokemon[:individual_value_h],
+          individual_value_a: init_pokemon[:individual_value_a],
+          individual_value_b: init_pokemon[:individual_value_b],
+          individual_value_c: init_pokemon[:individual_value_c],
+          individual_value_d: init_pokemon[:individual_value_d],
+          individual_value_s: init_pokemon[:individual_value_s]
         }
       )
     pokemon ->
-      pokemon = Ecto.Changeset.change pokemon, name: init_pokemon[:name], type1_id: init_pokemon[:type1_id], type2_id: init_pokemon[:type2_id]
+      pokemon = Ecto.Changeset.change pokemon, name: init_pokemon[:name], type1_id: init_pokemon[:type1_id], type2_id: init_pokemon[:type2_id], individual_value_h: init_pokemon[:individual_value_h], individual_value_a: init_pokemon[:individual_value_a], individual_value_b: init_pokemon[:individual_value_b], individual_value_c: init_pokemon[:individual_value_c], individual_value_d: init_pokemon[:individual_value_d], individual_value_s: init_pokemon[:individual_value_s]
       Repo.update! pokemon
   end
 end

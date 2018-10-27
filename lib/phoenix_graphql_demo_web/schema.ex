@@ -3,12 +3,18 @@ defmodule PhoenixGraphqlDemoWeb.Schema do
 
   alias PhoenixGraphqlDemoWeb.PokemonResolver
   alias PhoenixGraphqlDemoWeb.TrainedPokemonResolver
-
+ 
   object :pokemon do
     field :id, non_null(:id)
     field :name, non_null(:string)
     field :type1, :type
     field :type2, :type
+    field :individual_value_h, :integer
+    field :individual_value_a, :integer
+    field :individual_value_b, :integer
+    field :individual_value_c, :integer
+    field :individual_value_d, :integer
+    field :individual_value_s, :integer
   end
 
   object :type do
