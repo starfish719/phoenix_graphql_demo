@@ -18,7 +18,9 @@ defmodule PhoenixGraphqlDemo.Pokemon do
 
   """
   def list_pokemons do
-    Repo.all(PokemonData)|>Repo.preload(:type1)|>Repo.preload(:type2)
+    Repo.all(PokemonData)
+    |>Repo.preload(:type1)
+    |>Repo.preload(:type2)
   end
 
   @doc """
@@ -36,7 +38,9 @@ defmodule PhoenixGraphqlDemo.Pokemon do
 
   """
   def get_pokemon_data!(id) do
-    Repo.get!(PokemonData, id)|>Repo.preload(:type1)|>Repo.preload(:type2)
+    Repo.get!(PokemonData, id)
+    |>Repo.preload(:type1)
+    |>Repo.preload(:type2)
   end
 
   @doc """
