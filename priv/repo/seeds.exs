@@ -110,36 +110,36 @@ init_pokemons = [
     {:name, "フシギダネ"},
     {:type1_id, 4},
     {:type2_id, 9},
-    {:individual_value_h, 45},
-    {:individual_value_a, 49},
-    {:individual_value_b, 49},
-    {:individual_value_c, 65},
-    {:individual_value_d, 65},
-    {:individual_value_s, 45}
+    {:base_stats_h, 45},
+    {:base_stats_a, 49},
+    {:base_stats_b, 49},
+    {:base_stats_c, 65},
+    {:base_stats_d, 65},
+    {:base_stats_s, 45}
   ],
   [
     {:id, 2},
     {:name, "フシギソウ"},
     {:type1_id, 4},
     {:type2_id, 9},
-    {:individual_value_h, 60},
-    {:individual_value_a, 62},
-    {:individual_value_b, 63},
-    {:individual_value_c, 80},
-    {:individual_value_d, 80},
-    {:individual_value_s, 60}
+    {:base_stats_h, 60},
+    {:base_stats_a, 62},
+    {:base_stats_b, 63},
+    {:base_stats_c, 80},
+    {:base_stats_d, 80},
+    {:base_stats_s, 60}
   ],
   [
     {:id, 3},
     {:name, "フシギバナ"},
     {:type1_id, 4},
     {:type2_id, 9},
-    {:individual_value_h, 80},
-    {:individual_value_a, 82},
-    {:individual_value_b, 83},
-    {:individual_value_c, 100},
-    {:individual_value_d, 100},
-    {:individual_value_s, 80}
+    {:base_stats_h, 80},
+    {:base_stats_a, 82},
+    {:base_stats_b, 83},
+    {:base_stats_c, 100},
+    {:base_stats_d, 100},
+    {:base_stats_s, 80}
   ],
 ]
 for init_pokemon <- init_pokemons do
@@ -151,16 +151,16 @@ for init_pokemon <- init_pokemons do
           name: init_pokemon[:name],
           type1_id: init_pokemon[:type1_id],
           type2_id: init_pokemon[:type2_id],
-          individual_value_h: init_pokemon[:individual_value_h],
-          individual_value_a: init_pokemon[:individual_value_a],
-          individual_value_b: init_pokemon[:individual_value_b],
-          individual_value_c: init_pokemon[:individual_value_c],
-          individual_value_d: init_pokemon[:individual_value_d],
-          individual_value_s: init_pokemon[:individual_value_s]
+          base_stats_h: init_pokemon[:base_stats_h],
+          base_stats_a: init_pokemon[:base_stats_a],
+          base_stats_b: init_pokemon[:base_stats_b],
+          base_stats_c: init_pokemon[:base_stats_c],
+          base_stats_d: init_pokemon[:base_stats_d],
+          base_stats_s: init_pokemon[:base_stats_s]
         }
       )
     pokemon ->
-      pokemon = Ecto.Changeset.change pokemon, name: init_pokemon[:name], type1_id: init_pokemon[:type1_id], type2_id: init_pokemon[:type2_id], individual_value_h: init_pokemon[:individual_value_h], individual_value_a: init_pokemon[:individual_value_a], individual_value_b: init_pokemon[:individual_value_b], individual_value_c: init_pokemon[:individual_value_c], individual_value_d: init_pokemon[:individual_value_d], individual_value_s: init_pokemon[:individual_value_s]
+      pokemon = Ecto.Changeset.change pokemon, name: init_pokemon[:name], type1_id: init_pokemon[:type1_id], type2_id: init_pokemon[:type2_id], base_stats_h: init_pokemon[:base_stats_h], base_stats_a: init_pokemon[:base_stats_a], base_stats_b: init_pokemon[:base_stats_b], base_stats_c: init_pokemon[:base_stats_c], base_stats_d: init_pokemon[:base_stats_d], base_stats_s: init_pokemon[:base_stats_s]
       Repo.update! pokemon
   end
 end
