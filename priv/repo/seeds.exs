@@ -160,7 +160,18 @@ for init_pokemon <- init_pokemons do
         }
       )
     pokemon ->
-      pokemon = Ecto.Changeset.change pokemon, name: init_pokemon[:name], type1_id: init_pokemon[:type1_id], type2_id: init_pokemon[:type2_id], base_stats_h: init_pokemon[:base_stats_h], base_stats_a: init_pokemon[:base_stats_a], base_stats_b: init_pokemon[:base_stats_b], base_stats_c: init_pokemon[:base_stats_c], base_stats_d: init_pokemon[:base_stats_d], base_stats_s: init_pokemon[:base_stats_s]
+      pokemon = Ecto.Changeset.change(
+        pokemon,
+        name: init_pokemon[:name],
+        type1_id: init_pokemon[:type1_id],
+        type2_id: init_pokemon[:type2_id],
+        base_stats_h: init_pokemon[:base_stats_h],
+        base_stats_a: init_pokemon[:base_stats_a],
+        base_stats_b: init_pokemon[:base_stats_b],
+        base_stats_c: init_pokemon[:base_stats_c],
+        base_stats_d: init_pokemon[:base_stats_d],
+        base_stats_s: init_pokemon[:base_stats_s]
+      )
       Repo.update! pokemon
   end
 end
@@ -171,11 +182,23 @@ init_trained_pokemons = [
     {:id, 1},
     {:pokemon_id, 1},
     {:nickname, "フッシー"},
+    {:individual_value_h, 6},
+    {:individual_value_a, 0},
+    {:individual_value_b, 0},
+    {:individual_value_c, 252},
+    {:individual_value_d, 0},
+    {:individual_value_s, 252},
   ],
   [
     {:id, 2},
     {:pokemon_id, 2},
     {:nickname, nil},
+    {:individual_value_h, 0},
+    {:individual_value_a, 0},
+    {:individual_value_b, 0},
+    {:individual_value_c, 0},
+    {:individual_value_d, 0},
+    {:individual_value_s, 0},
   ],
 ]
 for init_trained_pokemon <- init_trained_pokemons do
@@ -186,10 +209,26 @@ for init_trained_pokemon <- init_trained_pokemons do
           id: init_trained_pokemon[:id],
           pokemon_id: init_trained_pokemon[:pokemon_id],
           nickname: init_trained_pokemon[:nickname],
+          individual_value_h: init_trained_pokemon[:individual_value_h],
+          individual_value_a: init_trained_pokemon[:individual_value_a],
+          individual_value_b: init_trained_pokemon[:individual_value_b],
+          individual_value_c: init_trained_pokemon[:individual_value_c],
+          individual_value_d: init_trained_pokemon[:individual_value_d],
+          individual_value_s: init_trained_pokemon[:individual_value_s],
         }
       )
     trained_pokemon ->
-      trained_pokemon = Ecto.Changeset.change trained_pokemon, pokemon_id: init_trained_pokemon[:pokemon_id], nickname: init_trained_pokemon[:nickname]
+      trained_pokemon = Ecto.Changeset.change(
+        trained_pokemon,
+        pokemon_id: init_trained_pokemon[:pokemon_id],
+        nickname: init_trained_pokemon[:nickname],
+        individual_value_h: init_trained_pokemon[:individual_value_h],
+        individual_value_a: init_trained_pokemon[:individual_value_a],
+        individual_value_b: init_trained_pokemon[:individual_value_b],
+        individual_value_c: init_trained_pokemon[:individual_value_c],
+        individual_value_d: init_trained_pokemon[:individual_value_d],
+        individual_value_s: init_trained_pokemon[:individual_value_s],
+      )
       Repo.update! trained_pokemon
   end
 end

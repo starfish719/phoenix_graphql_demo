@@ -26,6 +26,12 @@ defmodule PhoenixGraphqlDemoWeb.Schema do
     field :id, non_null(:id)
     field :pokemon_data, non_null(:pokemon)
     field :nickname, :string
+    field :individual_value_h, :integer
+    field :individual_value_a, :integer
+    field :individual_value_b, :integer
+    field :individual_value_c, :integer
+    field :individual_value_d, :integer
+    field :individual_value_s, :integer
   end
 
   query do
