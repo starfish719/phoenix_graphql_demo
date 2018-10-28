@@ -20,9 +20,9 @@ defmodule PhoenixGraphqlDemo.TrainedPokemon do
   """
   def list_trained_pokemons do
     Repo.all(TrainedPokemonData)
-      |> Repo.preload(:pokemon_data)
-      |> Repo.preload(pokemon_data: :type1)
-      |> Repo.preload(pokemon_data: :type2)
+    |> Repo.preload(:pokemon_data)
+    |> Repo.preload(pokemon_data: :type1)
+    |> Repo.preload(pokemon_data: :type2)
   end
 
   @doc """
@@ -41,9 +41,9 @@ defmodule PhoenixGraphqlDemo.TrainedPokemon do
   """
   def get_trained_pokemon_data!(id) do
     Repo.get!(TrainedPokemonData, id)
-      |> Repo.preload(:pokemon_data)
-      |> Repo.preload(pokemon_data: :type1)
-      |> Repo.preload(pokemon_data: :type2)
+    |> Repo.preload(:pokemon_data)
+    |> Repo.preload(pokemon_data: :type1)
+    |> Repo.preload(pokemon_data: :type2)
   end
 
   @doc """
